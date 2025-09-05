@@ -85,12 +85,14 @@ Dengan migrasi, perubahan model (misalnya menambah field baru) dapat diterapkan 
 
 Menurut saya, Django dipilih karena:
 
-* Dokumentasinya lengkap dan komunitasnya luas.
-* Struktur proyek jelas sehingga mudah untuk dipelajari pemula.
-* Framework ini sudah batteries included (menyediakan banyak fitur bawaan seperti ORM, autentikasi, admin panel).
-* Mendukung praktik best practice dalam pengembangan web sejak awal.
+* Ditulis dengan Python, bahasa pemrograman yang simpel, populer, dan mudah dipelajari.
+* Dokumentasinya lengkap serta didukung komunitas yang luas.
+* Struktur proyeknya jelas sehingga ramah bagi pemula.
+* Menganut filosofi *batteries included*, menyediakan banyak fitur bawaan seperti autentikasi, admin panel, ORM, form handling, hingga keamanan dasar.
+* Mendukung praktik *best practice* seperti prinsip DRY (*Don’t Repeat Yourself*) dan konsistensi kode.
+* Aman, skalabel, lintas platform, serta sudah terbukti digunakan oleh aplikasi besar seperti Instagram, Pinterest, dan Spotify.
 
-Dengan begitu, mahasiswa bisa fokus pada konsep fundamental pengembangan web tanpa harus membangun semuanya dari nol.
+Dengan begitu, mahasiswa bisa lebih fokus pada konsep fundamental pengembangan web tanpa harus membangun semuanya dari nol.
 
 ---
 
