@@ -2,11 +2,11 @@ from django.db import models
 
 class Product(models.Model):
     CATEGORY_CHOICES = [
-        ('sportswear', 'Sportswear'),
-        ('footwear', 'Footwear'),
-        ('equipment', 'Equipment'),
+        ('jersey', 'Jersey'),
+        ('boots', 'Football Boots'),
+        ('ball', 'Football'),
+        ('goalkeeper_gear', 'Goalkeeper Gear'),
         ('accessories', 'Accessories'),
-        ('protection gear', 'Protection Gear'),
     ]
 
     # mandatory fields
@@ -14,7 +14,11 @@ class Product(models.Model):
     price = models.IntegerField(default=0) 
     description = models.TextField(blank=True, null=True) 
     thumbnail = models.URLField(blank=True, null=True)
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='sportswear')
+    category = models.CharField(
+        max_length=20,
+        choices=CATEGORY_CHOICES,
+        default='boots'
+    )
     is_featured = models.BooleanField(default=False)
     
     stock = models.IntegerField(default=0)
