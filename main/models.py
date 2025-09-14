@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 class Product(models.Model):
     CATEGORY_CHOICES = [
@@ -10,6 +11,7 @@ class Product(models.Model):
     ]
 
     # mandatory fields
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100)
     price = models.IntegerField(default=0) 
     description = models.TextField(blank=True, null=True) 
