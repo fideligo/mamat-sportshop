@@ -1,0 +1,22 @@
+<title>{{ product.name }}</title>
+
+<p><a href="{% url 'main:main_page' %}"><button>← Back to Product List</button></a></p>
+
+<h1>{{ product.name }}</h1>
+<h3>Rp{{ product.price }}</h3>
+<p>
+    <b>{{ product.category }}</b>
+
+    {% if news.is_featured %} |
+        <b>Featured</b>
+    {% endif %}
+    
+    | <i>Produk ini di post pada: <b>{{ product.created_at|date:"d M Y" }}</b></i>|
+</p>
+
+{% if news.thumbnail %}
+<img src="{{ news.thumbnail }}" alt="News thumbnail" width="300">
+<br /><br />
+{% endif %}
+
+<p>{{ news.content }}</p>

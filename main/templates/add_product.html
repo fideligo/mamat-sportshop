@@ -1,0 +1,16 @@
+<title>Add Product</title>
+
+<h1>Add Product</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Product to Product List" />
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,4 +1,39 @@
-<title>Mamat Sportshop</title>
-<h1>Halo, selamat datang di project {{ nama_project }}</h1>
+<title>{{ nama_project }}</title>
+<h1>{{ nama_project }}</h1>
+<p>(Ronaldo sama Messi pernah beli baju bola disini)</p>
 
-<h1>Halaman ini dibuat oleh {{ name }} - {{ npm }} dari kelas {{ class }}</h1>
+<a href="{% url 'main:add_product' %}">
+    <button>Add a Product</button>
+</a>
+
+<hr>
+
+{% if not product_list %}
+    <p>Toko masih kosong. Stok baru akan segera hadir!</p>
+{% else %}
+    {% for product in product_list %}
+        <div>
+            {% if product.thumbnail %}
+                {{ product.thumbnail }}
+
+                <p>{{ product.name }} <br> Rp{{ product.price }}</p>
+                <hr>
+            {% endif %}
+        
+        </div>
+        <!-- <a href="{% url 'main:show_product' product.id %}">
+            
+        </a> -->
+    {% endfor %}
+
+    {% for product in product_list %}
+    <div>
+        {% if not product.thumbnail %}
+            <p>{{ product.name }} <br> Rp{{ product.price }}</p>
+            <a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a>
+            <hr>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+{% endif %}
