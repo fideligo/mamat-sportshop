@@ -49,6 +49,9 @@ Saya memulai pengerjaan tugas ini secara bertahap sebagai berikut:
 
 ### 2. Bagan Alur Request dan Response Django
 <img width="725" height="525" alt="image" src="https://github.com/user-attachments/assets/f1514745-82a5-4bda-b1ab-b70c0317fabb" />
+
+sumber: Forum Diskusi Minggu Kedua - Course PBP SCELE (Discussion "Alur Django")
+
 **Penjelasan:**
 
 * Pertama, `urls.py` mencocokkan URL yang diakses di browser dengan daftar path yang ada.
