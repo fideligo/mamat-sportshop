@@ -7,16 +7,16 @@
 <p>
     <b>{{ product.category }}</b>
 
-    {% if news.is_featured %} |
+    {% if product.is_featured %} |
         <b>Featured</b>
     {% endif %}
     
     | <i>Produk ini di post pada: <b>{{ product.created_at|date:"d M Y" }}</b></i>|
 </p>
-
-{% if news.thumbnail %}
-<img src="{{ news.thumbnail }}" alt="News thumbnail" width="300">
-<br /><br />
+<hr>
+{% if product.thumbnail %}
+<img src="{{ product.thumbnail }}" alt="Product thumbnail" width="300">
+<hr>
 {% endif %}
 
-<p>{{ news.content }}</p>
+<p>{{ product.description }}</p>
