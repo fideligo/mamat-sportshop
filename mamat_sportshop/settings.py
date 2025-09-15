@@ -32,6 +32,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "muhammad-rafi419-mamatsportshop.pbp.cs.ui.ac.id"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://muhammad-rafi419-mamatsportshop.pbp.cs.ui.ac.id",
+    "http://localhost:8000",
+]
+
 
 # Application definition
 
