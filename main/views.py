@@ -84,6 +84,8 @@ def show_json_by_id(request, product_id):
        return HttpResponse(status=404)
 
 def register(request):
+    form = UserCreationForm()
+
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -100,7 +102,7 @@ def login_user(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main"))
+            response = HttpResponseRedirect(reverse("main:main_page"))
             response.set_cookie('last_login', str(datetime.datetime.now()))
             return response
         
