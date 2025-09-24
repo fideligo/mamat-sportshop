@@ -23,7 +23,7 @@
     {% for product in product_list %}
         <div>
             {% if product.thumbnail %}
-                {{ product.thumbnail }}
+                    <img src="{{ product.thumbnail }}" alt="">
 
                 <p>{{ product.name }} <br> Rp{{ product.price }}</p>
                 <hr>
