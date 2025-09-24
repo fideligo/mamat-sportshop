@@ -1,51 +1,51 @@
 {% extends 'base.html' %}
 {% block content %}
-<title>{{ nama_project }}</title>
-<h1>{{ nama_project }}</h1>
-<p>(Ronaldo sama Messi pernah beli baju bola disini)</p>
+    <title>{{ nama_project }}</title>
+    <h1>{{ nama_project }}</h1>
+    <p>(Ronaldo sama Messi pernah beli baju bola disini)</p>
 
-<a href="{% url 'main:add_product' %}">
-    <button>Add a Product</button>
-</a>
-<a href="{% url 'main:logout' %}">
-    <button>Logout</button>
-</a>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-<a href="?filter=all">
-    <button type="button">All Products</button>
-</a>
-<a href="?filter=my">
-    <button type="button">My Products</button>
+    <a href="{% url 'main:add_product' %}">
+        <button>Add a Product</button>
     </a>
-<hr>
+    <a href="{% url 'main:logout' %}">
+        <button>Logout</button>
+    </a>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="?filter=all">
+        <button type="button">All Products</button>
+    </a>
+    <a href="?filter=my">
+        <button type="button">My Products</button>
+        </a>
+    <hr>
 
-{% if not product_list %}
-    <p>Toko masih kosong.</p>
-{% else %}
-    {% for product in product_list %}
-        <div>
-            {% if product.thumbnail %}
+    {% if not product_list %}
+        <p>Toko masih kosong.</p>
+    {% else %}
+        {% for product in product_list %}
+            <div>
+                {% if product.thumbnail %}
                     <img src="{{ product.thumbnail }}" alt="">
 
+                    <p>{{ product.name }} <br> Rp{{ product.price }}</p>
+                    <hr>
+                {% endif %}
+            
+            </div>
+            <!-- <a href="{% url 'main:show_product' product.id %}">
+                
+            </a> -->
+        {% endfor %}
+
+        {% for product in product_list %}
+        <div>
+            {% if not product.thumbnail %}
                 <p>{{ product.name }} <br> Rp{{ product.price }}</p>
+                <a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a>
                 <hr>
             {% endif %}
-        
         </div>
-        <!-- <a href="{% url 'main:show_product' product.id %}">
-            
-        </a> -->
-    {% endfor %}
+        {% endfor %}
 
-    {% for product in product_list %}
-    <div>
-        {% if not product.thumbnail %}
-            <p>{{ product.name }} <br> Rp{{ product.price }}</p>
-            <a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a>
-            <hr>
-        {% endif %}
-    </div>
-    {% endfor %}
-
-{% endif %}
+    {% endif %}
 {% endblock content %}
