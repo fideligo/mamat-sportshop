@@ -242,5 +242,69 @@ Langkah yang saya lakukan:
 
 ---
 
+Tugas 5: Desain Web menggunakan HTML, CSS dan Framework CSS
+
+### Urutan Prioritas CSS Selector  
+Jika ada beberapa CSS selector yang berlaku untuk elemen yang sama, maka urutannya adalah:  
+`!important` → inline style → ID selector → class/atribut/pseudo-class → element selector.  
+Jika sama kuatnya, maka yang paling terakhir ditulis akan dipakai.  
+
+### Pentingnya Responsive Design  
+Responsive design penting karena pengguna membuka website dari berbagai ukuran layar. Tanpa responsive design, tampilan bisa berantakan di HP maupun tablet.  
+
+### Margin, Border, dan Padding  
+- **Margin**: jarak luar antar elemen.  
+- **Border**: garis tepi elemen.  
+- **Padding**: jarak antara konten dengan tepi dalam elemen.  
+
+Ketiganya adalah bagian dari box model dan dipakai untuk mengatur tata letak dan ruang dalam desain.  
+
+### Flexbox dan Grid Layout  
+- **Flexbox** digunakan untuk mengatur layout satu dimensi (baris atau kolom).  
+- **Grid** digunakan untuk layout dua dimensi (baris dan kolom).  
+
+Keduanya memudahkan pengaturan tata letak modern agar lebih rapi dan fleksibel.  
+
+### Langkah Implementasi  
+# Langkah Implementasi Mamat Sportshop
+
+## 1. Setup Template dan Styling
+- Menambahkan `base.html` sebagai base template.  
+- Menambahkan **Tailwind CSS** ke `base.html`.  
+- Mengatur `settings.py` supaya direktori `BASE_DIR/templates` menjadi tempat `base.html`.  
+- Membuat template root untuk **navbar** dan **footer** agar bisa dipakai ulang.  
+
+## 2. Refactor Template
+- Refactor `pages2` yang sebelumnya sudah ada supaya **extends `base.html`**.  
+- Membuat file `product_card.html` untuk digunakan sebagai card tampilan produk.  
+
+## 3. Views dan Routing
+- Menambahkan fungsi **edit product** dan **add product** di `views.py`.  
+- Menambahkan routing path untuk fungsi **edit** dan **add product** di `urls.py`.  
+- Membuat file `edit_product.html`.  
+
+## 4. Styling dan Komponen
+- Menambahkan **edit** dan **delete button** di `main.html`.  
+- Menambahkan styling pada `main.html`.  
+- Menambahkan static assets:
+  - Logo toko  
+  - Foto untuk main page  
+
+## 5. Middleware dan Static Files
+- Menambahkan **Whitenoise Middleware** di `settings.py` untuk serving static files.  
+
+## 6. Styling Halaman
+- Melakukan styling ulang untuk file HTML yang sudah ada:
+  - `edit_product.html`  
+  - `add_product.html`  
+  - `login.html`  
+  - `register.html`  
+  - `main.html`  
+  - `product_details.html`  
+
+## 7. Add, Commit, Push ke GitHub dan PWS
+
+---
+
 Sekian, Terimakasih
 Fideligo
