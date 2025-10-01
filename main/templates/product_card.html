@@ -1,0 +1,57 @@
+{% load static %}
+<a
+	href="{% url 'main:show_product' product.id %}"
+	class="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition w-[262px] max-w-full flex flex-col"
+>
+	<!-- Product Image Wrapper -->
+	<div
+		class="relative bg-[#F3F5F7] w-full h-[349px] flex items-center justify-center rounded-t-lg overflow-hidden"
+	>
+		<!-- Badge FEATURED -->
+		{% if product.is_featured %}
+		<span
+			class="absolute top-2 left-2 bg-white text-black text-xs font-semibold px-2 py-1 rounded shadow"
+		>
+			FEATURED
+		</span>
+		{% endif %}
+
+		<!-- Edit & Delete (only for owner) -->
+		{% if user.is_authenticated and product.user == user %}
+		<div class="absolute top-2 right-2 flex gap-1">
+			<button
+				type="button"
+				onclick="event.preventDefault(); event.stopPropagation(); window.location.href='{% url 'main:edit_product' product.id %}'"
+				class="bg-blue-500 text-white text-xs px-2 py-1 rounded hover:bg-blue-600"
+			>
+				Edit
+			</button>
+			<button
+				type="button"
+				onclick="event.preventDefault(); event.stopPropagation(); window.location.href='{% url 'main:delete_product' product.id %}'"
+				class="bg-red-500 text-white text-xs px-2 py-1 rounded hover:bg-red-600"
+			>
+				Delete
+			</button>
+		</div>
+		{% endif %}
+
+		<!-- Product Image -->
+		{% if product.thumbnail %}
+		<img
+			src="{{ product.thumbnail|default:'' }}"
+			alt="{{ product.name }}"
+			class="h-full w-full object-contain"
+		/>
+		{% endif %}
+	</div>
+
+	<!-- Info -->
+	<div class="p-3 h-[98px] flex flex-col justify-between">
+		<h3 class="text-sm font-semibold text-gray-800 truncate">
+			{{ product.brand }} - {{ product.name }}
+		</h3>
+		<p class="text-xs text-gray-500">{{ product.get_category_display }}</p>
+		<p class="mt-1 text-lg text-black font-bold">Rp{{ product.price }}</p>
+	</div>
+</a>

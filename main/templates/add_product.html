@@ -1,16 +1,31 @@
-<title>Add Product</title>
+{% extends 'base.html' %}
+{% load static %}
 
-<h1>Add Product</h1>
+{% block content %}
+<!-- Navbar -->
+{% include 'navbar.html' %}
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Product to Product List" />
-            </td>
-        </tr>
-    </table>
-</form>
+<div class="min-h-screen flex items-center justify-center bg-gray-100 px-6 py-12">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-8">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Add Product</h1>
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Render form fields -->
+      <div class="space-y-4">
+        {{ form.as_p }}
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          type="submit"
+          class="bg-[#212A31] hover:bg-[#2f3c45] text-white font-medium px-6 py-2 rounded-lg shadow-md transition"
+        >
+          Add Product to Product List
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

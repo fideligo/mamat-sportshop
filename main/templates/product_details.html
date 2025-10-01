@@ -1,28 +1,67 @@
-<title>{{ product.name }}</title>
+{% extends 'base.html' %}
+{% load static %}
 
-<p><a href="{% url 'main:main_page' %}"><button>← Back to Product List</button></a></p>
+{% block meta %}
+<title>{{ product.title }}</title>
+{% endblock meta %}
 
-<h1>{{ product.name }}</h1>
-<h3>Rp{{ product.price }}</h3>
-<p>
-    <b>{{ product.category }}</b>
+{% block content %}
+<div class="min-h-screen bg-white text-gray-900 px-6 py-10 lg:px-20">
 
-    {% if product.is_featured %} |
-        <b>Featured</b>
-    {% endif %}
-    
-    | <i>Produk ini di post pada: <b>{{ product.created_at|date:"d M Y" }}</b></i>|
-</p>
-<hr>
-{% if product.thumbnail %}
-<img src="{{ product.thumbnail }}" alt="Product thumbnail" width="300">
-<hr>
-{% endif %}
+  <!-- Back Button -->
+  <a href="{% url 'main:main_page' %}" class="text-gray-600 hover:text-black text-sm mb-6 inline-block">
+    ← Back to Products
+  </a>
 
-<p>{{ product.description }}</p>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Left: Thumbnail -->
+    <div>
+      {% if product.thumbnail %}
+        <img src="{{ product.thumbnail }}" alt="{{ product.title }}" class="w-full rounded-lg shadow-md">
+      {% else %}
+        <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-lg">
+          <span class="text-gray-500">No Image</span>
+        </div>
+      {% endif %}
+    </div>
 
-{% if product.user %}
-    <p>Author: {{ product.user.username }}</p>
-{% else %}
-    <p>Author: Anonymous</p>
-{% endif %}
+    <!-- Right: Product Info -->
+    <div>
+      <h1 class="text-3xl font-semibold mb-3">{{ product.title }}</h1>
+
+      <!-- Category -->
+      <p class="text-sm text-gray-500 mb-2">
+        Category: <span class="font-medium">{{ product.get_category_display }}</span>
+      </p>
+
+      <!-- Featured -->
+      <p class="text-sm text-gray-500 mb-2">
+        Featured: 
+        {% if product.featured %}
+          <span class="text-green-600 font-medium">Yes</span>
+        {% else %}
+          <span class="text-red-600 font-medium">No</span>
+        {% endif %}
+      </p>
+
+      <!-- Price -->
+      <p class="text-2xl font-bold text-gray-800 mb-4">Rp{{ product.price }}</p>
+
+      <!-- Created -->
+      <p class="text-sm text-gray-500 mb-2">Posted on: {{ product.created_at|date:"d M Y" }}</p>
+
+      <!-- Seller -->
+      <p class="text-sm text-gray-500 mb-6">Seller: {{ product.user }}</p>
+
+      <!-- Description -->
+      <div class="mt-6">
+        <h2 class="text-lg font-medium mb-2">Description</h2>
+        <p class="text-gray-700 leading-relaxed">
+          {{ product.description }}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
