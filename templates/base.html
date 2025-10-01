@@ -7,8 +7,16 @@
 		{% block meta %} {% endblock meta %}
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="{% static 'css/global.css' %}" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body>
-		{% block content %} {% endblock content %}
+	<body class="flex flex-col min-h-screen bg-white">
+		<!-- Konten halaman (isi dari main.html) -->
+		<main class="flex-grow">{% block content %} {% endblock content %}</main>
+
+		<!-- Footer selalu di bawah -->
+		{% include "footer.html" %}
 	</body>
 </html>

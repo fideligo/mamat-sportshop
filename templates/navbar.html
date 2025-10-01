@@ -1,21 +1,38 @@
-<nav>
-  <h1>Mamat Sportshop</h1>
+<nav x-data="{ open: false }" class="bg-[#07141E] opacity-95 text-white fixed top-0 left-0 w-full z-50">
+  <div class="max-w-screen mx-auto px-6 py-4 flex items-center justify-between">
 
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="{% url 'main:add_product' %}">Add Product</a></li>
-  </ul>
+    <!-- Logo -->
+    <div class="text-xl font-semibold">Mamat Sportshop</div>
 
-  {% if user.is_authenticated %}
-    <div>
-      <span>Welcome, {{ name|default:user.username }}</span>
-      <span>{{ npm|default:"Student" }} - {{ class|default:"Class" }}</span>
-      <a href="{% url 'main:logout' %}">Logout</a>
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-8 text-sm font-medium">
+      <li><a href="#featured_products" class="hover:text-gray-300">Featured</a></li>
+      <li><a href="?filter=all#all_products" class="hover:text-gray-300">All Products</a></li>
+      <li><a href="?filter=all#my_products" class="hover:text-gray-300">My Products</a></li>
+      <li><a href="/add-product" class="hover:text-gray-300">Add Product</a></li>
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button @click="open = !open" class="focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
-  {% else %}
-    <div>
-      <a href="{% url 'main:login' %}">Login</a>
-      <a href="{% url 'main:register' %}">Register</a>
-    </div>
-  {% endif %}
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div x-show="open" class="md:hidden bg-[#07141E] text-white px-6 py-4 space-y-4">
+    <a href="#featured_products" class="block hover:text-gray-300">Featured</a>
+    <a href="?filter=all#all_products" class="block hover:text-gray-300">All Products</a>
+    <a href="?filter=all#my_products" class="block hover:text-gray-300">My Products</a>
+    <a href="/add-product" class="block hover:text-gray-300">Add Product</a>
+    <hr class="border-gray-600">
+  </div>
 </nav>
+
+<!-- Tambahin Alpine.js -->
+<script src="//unpkg.com/alpinejs" defer></script>
