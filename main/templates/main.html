@@ -28,17 +28,23 @@
 	</div>
 </section>
 
-<!-- Featured Products -->
+<!-- Featured Products (only if not empty) -->
+{% if featured_list %}
 <section id="featured_products" class="container mx-auto px-6 py-12">
 	<h2 class="text-2xl font-bold mb-6 text-black">Featured Products</h2>
 
+	<!-- Horizontal Scroll Wrapper -->
 	<div
-		class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+		class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4"
 	>
-		{% for product in featured_list %} {% include "product_card.html" with
-		product=product %} {% endfor %}
+		{% for product in featured_list %}
+			<div class="flex-shrink-0 w-64 snap-start">
+				{% include "product_card.html" with product=product %}
+			</div>
+		{% endfor %}
 	</div>
 </section>
+{% endif %}
 
 <!-- All / My Products -->
 <div id="all_products" class="container mx-auto px-6 py-12 bg-white text-black">

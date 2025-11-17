@@ -2,3 +2,12 @@
 body {
 	font-family: "Poppins", sans-serif;
 }
+
+/* Hilangkan scrollbar tapi tetap bisa scroll */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+.no-scrollbar {
+	-ms-overflow-style: none; /* untuk IE & Edge */
+	scrollbar-width: none; /* untuk Firefox */
+}

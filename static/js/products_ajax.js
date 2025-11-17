@@ -148,7 +148,6 @@ refreshBtn?.addEventListener("click", () => {
 	fetchProducts();
 });
 
-
 document.addEventListener("productUpdated", fetchProducts);
 
 // AUTO-LOAD ketika halaman dibuka
