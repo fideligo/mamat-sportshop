@@ -30,4 +30,7 @@ urlpatterns = [
 
     path('product/<uuid:id>/edit', edit_product, name='edit_product'),
     path('product/<uuid:id>/delete', delete_product, name='delete_product'),
+
+    path('proxy-image/', proxy_image, name='proxy_image'),
+    path('json-my/', show_my_json, name='show_my_json'),
 ]
